@@ -9,7 +9,7 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 #echo Printing something to log
 #printenv
-pmd -R java-unusedcode -d "${INPUT_WORKDIR}" -f xml \  
+pmd -R pmd-ruleset.xml -d "${INPUT_WORKDIR}" -f xml \  
   | reviewdog -f=pmd \
       -name="pmd" \
       -reporter="${INPUT_REPORTER:-github-pr-check}" \
