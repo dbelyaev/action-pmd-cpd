@@ -7,7 +7,7 @@ fi
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
-pmd -R "pmd-ruleset.xml" -d "." -f xml -r analysis_results.xml
+pmd -R "pmd-ruleset.xml" -d "." -f xml -r "analysis_results.xml"
 cat analysis_results.xml | reviewdog -efm="%f:%l: %m" \
       -name="pmd" 
       -reporter="${INPUT_REPORTER:-github-pr-check}" \
